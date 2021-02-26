@@ -9,7 +9,7 @@
 
 ### html
 
-30 minutes
+20 minutes
 
 - [x] h1-title/img
 - [x] p-short explantion
@@ -21,16 +21,15 @@
 
 ### css
 
-20 minutes
+10 minutes
 
-- [ ] classes : btn,title,epxlamiton(p)
-- [ ] Q : add animation for landing and explantion?
+- [x] classes : btn,title,epxlamiton(p)
 
 ### js
 
-10 minutes
+20 minutes
 
-- [ ] event litner on btn :
+- [x] event litner on btn :
 
 # main
 
@@ -38,7 +37,7 @@
 
 30 minutes
 
-- [ ] hard code divs
+- [x] hard code divs
 
 ### css
 
@@ -74,3 +73,4 @@
 - [ ] randomization how?? onorder shapes loke clouds
 - [ ] media queries
 - [ ] fonts animations and shits
+- [ ] Q : add animation for landing and explantion?

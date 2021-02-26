@@ -1,5 +1,5 @@
 /***********************************************************************
- *  landing-page
+ *  Landing Page
 **********************************************************************/
 #landing-page {
   display: flex;
@@ -11,9 +11,44 @@
   padding: 4rem;
 }
 /***********************************************************************
- *  s
+ *  Game Page
 **********************************************************************/
+.game-content {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 20%;
+  grid-template-areas: "world inventory";
+}
 
+.game-content__world {
+  display: grid;
+  /* grid-template-areas:
+    "sky1 sky2 sky3 sky4 sky5"
+    "sky1 sky2 sky3 sky4 sky5"
+    "grass1 grass2 grass3 grass4 grass5 "
+    "earth1 earth2 earth3 earth4 earth5"
+    "earth1 earth2 earth3 earth4 earth5"; */
+  grid-template-columns: repeat(20, minmax(30px, 1fr));
+  grid-template-rows: repeat(20, minmax(30px, 1fr));
+  justify-content: center;
+  align-content: center;
+  background-color: var(--world-color);
+  grid-area: world;
+}
+.tile {
+  background-color: red;
+}
+.game-content__inventory {
+  min-width: 20%;
+  background-color: var(--inventory-color);
+  grid-area: inventory;
+}
 /***********************************************************************
  * s
 **********************************************************************/
+/* calc(100% / 20))) */
+/* grid-template-rows: repeat(20, 30px); */
+/* grid-template-columns: repeat(20, 30px);
+grid-template-rows: repeat(20, 30px); */
+/* minmax(30px, 1fr)) */
