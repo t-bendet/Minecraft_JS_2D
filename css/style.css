@@ -20,25 +20,31 @@
   grid-template-columns: 1fr 20%;
   grid-template-areas: "world inventory";
 }
-
+/* most-common-aspect-ratio 16:9 * 2.5 */
 .game-content__world {
   display: grid;
-  /* grid-template-areas:
-    "sky1 sky2 sky3 sky4 sky5"
-    "sky1 sky2 sky3 sky4 sky5"
-    "grass1 grass2 grass3 grass4 grass5 "
-    "earth1 earth2 earth3 earth4 earth5"
-    "earth1 earth2 earth3 earth4 earth5"; */
-  grid-template-columns: repeat(20, minmax(30px, 1fr));
-  grid-template-rows: repeat(20, minmax(30px, 1fr));
+  grid-template-rows: repeat(23, 1fr);
+  grid-template-columns: repeat(40, 1fr);
   justify-content: center;
   align-content: center;
-  background-color: var(--world-color);
   grid-area: world;
 }
 .tile {
   background-color: red;
 }
+.tile:hover {
+  border: solid white 1px;
+}
+.sky {
+  background-color: blue;
+}
+.grass {
+  background-image: url(../images/grass.png);
+}
+.earth {
+  background-image: url(../images/soil.jpg);
+}
+
 .game-content__inventory {
   min-width: 20%;
   background-color: var(--inventory-color);

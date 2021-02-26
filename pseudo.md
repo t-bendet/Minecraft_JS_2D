@@ -51,14 +51,11 @@
 
 60 minutes
 
-- [ ] inject to inner html of main on btn click from main(pass on parm)
+- [x] inject to inner html of main on btn click from main(pass on parm)
 
 20 minutes
 
 - [ ] data obj
-
-???
-
 - [ ] inventory bar
 - [ ] create matrix 10 \* 10
 - [ ] Q: grid template rows in j.s?
@@ -69,8 +66,11 @@
 
 - [ ] build obj from stone wood and more
 - [ ] coding skin
+- [ ] china skin bambook
 - [ ] randomize world generation
 - [ ] randomization how?? onorder shapes loke clouds
 - [ ] media queries
 - [ ] fonts animations and shits
 - [ ] Q : add animation for landing and explantion?
+- [ ] lawn-mower
+- [ ] add on hover image that will be like the item i selected from the inventory
