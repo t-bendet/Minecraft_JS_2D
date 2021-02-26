@@ -1,18 +1,21 @@
 // landin page btn event listner
-const body = document.querySelector("body");
-const startBtn = document.querySelector(".start");
+const $ = (x) => document.querySelector(x);
+const body = $("body");
+const startBtn = $(".start");
+const create = $(".create");
 
-const gameContent = document.querySelector("#game");
-
-const gameWorld = document.querySelector("#game__world");
-
-const gameInventory = document.querySelector("#game__inventory");
-
+const preset = {
+  gameContent: $("#game"),
+  gameWorld: $("#game__world"),
+  gameInventory: $("#game__inventory"),
+};
+// TODO update class lists and row col to be dinamic
 function startGame() {
+  console.log(this);
   body.firstElementChild.remove();
-  gameContent.classList.add("game-content");
-  gameWorld.classList.add("game-content__world");
-  gameInventory.classList.add("game-content__inventory");
+  this.gameContent.classList.add("game-content");
+  this.gameWorld.classList.add("game-content__world");
+  this.gameInventory.classList.add("game-content__inventory");
   let worldrow = 23;
   for (let row = 0; row < worldrow; row++) {
     let worldcol = 40;
@@ -31,8 +34,15 @@ function startGame() {
       } else {
         matrix[row][col].classList.add("earth");
       }
-      gameWorld.appendChild(matrix[row][col]);
+      this.gameWorld.appendChild(matrix[row][col]);
     }
   }
 }
-startBtn.addEventListener("click", startGame);
+startBtn.addEventListener("click", startGame.bind(preset));
+create.addEventListener("click", startGame.bind(obj1));
+
+// manipulate classes
+// gameWorld.addEventListener("click", (event) => {
+//   console.log();
+// });
+// event.target.classList.value.includes("sky")

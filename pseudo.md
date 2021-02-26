@@ -57,9 +57,7 @@
 
 - [ ] data obj
 - [ ] inventory bar
-- [ ] create matrix 10 \* 10
-- [ ] Q: grid template rows in j.s?
-- [ ] Q:inject classes into grid or other way around?
+- [x] create matrix 10 \* 10
 - [ ] add last first funcionality to earth (can only extrect first elements)
 
 # extras

@@ -11,7 +11,7 @@
   padding: 4rem;
 }
 /***********************************************************************
- *  Game Page
+ *  Game Page world
 **********************************************************************/
 .game-content {
   height: 100%;
@@ -45,16 +45,16 @@
   background-image: url(../images/soil.jpg);
 }
 
+/***********************************************************************
+ * Game Page Inventory
+**********************************************************************/
 .game-content__inventory {
   min-width: 20%;
   background-color: var(--inventory-color);
   grid-area: inventory;
+  display: flex;
 }
-/***********************************************************************
- * s
-**********************************************************************/
+
 /* calc(100% / 20))) */
-/* grid-template-rows: repeat(20, 30px); */
-/* grid-template-columns: repeat(20, 30px);
-grid-template-rows: repeat(20, 30px); */
+
 /* minmax(30px, 1fr)) */
