@@ -24,18 +24,22 @@ const preSet = {
     element1: {
       el: "earth",
       remover: "shovel",
+      curr: 0,
     },
     element2: {
-      el: "stone",
+      el: "rock",
       remover: "pickaxe",
+      curr: 0,
     },
     element3: {
       el: "tree",
       remover: "axe",
+      curr: 0,
     },
     element4: {
       el: "grass",
       remover: "mower",
+      curr: 0,
     },
   },
 };
@@ -81,6 +85,7 @@ function intializeclass() {
       let element = document.createElement("div");
       element.classList.add(v.el);
       element.classList.add("elements-box");
+      element.innerText = 0;
       elements.appendChild(element);
     }
   }
@@ -95,7 +100,7 @@ function intializeclass() {
   const backToMenu = document.createElement("button");
   backToMenu.classList.add("back-to-menu");
   backToMenu.classList.add("inv-btn");
-  backToMenu.innerText = "back to menu";
+  backToMenu.innerText = "main menu";
   btns.appendChild(backToMenu);
 }
 //grid and main elements function
@@ -202,6 +207,8 @@ function intializeTrees() {
         let curr = grid.querySelector(`[data-col="${col}"][data-row="${row}"]`);
         curr.classList.remove("sky");
         curr.classList.add("leaves");
+        curr.classList.add("tree");
+        // find a way to connect axe to leavs also
       }
       x2++;
       y2--;

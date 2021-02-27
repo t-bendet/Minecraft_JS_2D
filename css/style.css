@@ -9,6 +9,8 @@
   background-color: aqua;
   height: 100%;
   padding: 4rem;
+  /* background: url(../images/pickaxe.png) no-repeat center center/cover; */
+  /* TODO add images */
 }
 /***********************************************************************
  *  Game Page world
@@ -58,6 +60,7 @@
 .leaves {
   background-image: url(../images/tree-leaves.png);
 }
+
 /***********************************************************************
  * Game Page Inventory
 **********************************************************************/
@@ -81,18 +84,40 @@
 .tool-box {
   height: 50px;
   width: 50px;
-  border: solid 3px black;
+  border: solid 3px white;
   background-color: blue;
+  display: flex;
+}
+.tool-box:hover {
+  -webkit-box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
+    20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
+    13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
+    -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
+    -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 4px -4px 15px 0px #ff1f1f, 12px -11px 7px 0px #ff9376,
+    20px -5px 7px 0px #ffe264, 20px 6px 7px 0px #f6ff33,
+    13px 12px 17px 0px #ff9527, 2px 17px 17px 0px #ff0000,
+    -9px 21px 18px 0px #fff212, -9px 6px 11px 0px #ff0808,
+    -11px -9px 11px 0px #fffa17, -11px -9px 11px 0px #fffa17,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 .inventory__elements {
   display: flex;
   border: solid 2px white;
 }
+
 .elements-box {
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
   border: solid 3px black;
   background-color: red;
+}
+.elements-box:hover {
+  -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+    red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 .inventory__resets {
   display: flex;
@@ -106,5 +131,15 @@
   /* TODO change to relative units on upper divs */
 }
 
-/* reset-world
-back-to-menu */
+.shovel {
+  background: url(../images/shovel.png) no-repeat center center/cover;
+}
+.pickaxe {
+  background: url(../images/pickaxe.png) no-repeat center center/cover;
+}
+.axe {
+  background: url(../images/axe.png) no-repeat center center/cover;
+}
+.mower {
+  background: url(../images/mower.png) no-repeat center center/cover;
+}

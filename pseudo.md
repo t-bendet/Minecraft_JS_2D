@@ -42,7 +42,7 @@
 30 minutes
 
 - [x] classes : main, inventory,tools,elements, more options?,btn-resetworld,btn-resetgame( back to main),tool box element-box
-- [ ] background image for each element
+- [x] background image for each element
 - [ ] pointers for each tool
 - [ ] add counter for elements in object and in css
 
@@ -57,7 +57,6 @@
 - [x] data obj
 - [x] inventory bar
 - [x] create matrix 10 \* 10
-- [ ] add last first funcionality to earth (can only extrect first elements)
 - [ ] event listner to change elements
 
 # extras
@@ -73,3 +72,4 @@
 - [ ] lawn-mower
 - [ ] add on hover image that will be like the item i selected from the inventory
 - [ ] creatyourown :size,skin,elements
+- [ ] add last first funcionality to earth (can only extrect first elements)
