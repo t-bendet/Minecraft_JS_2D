@@ -53,8 +53,45 @@
   background-color: var(--inventory-color);
   grid-area: inventory;
   display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* change*/
+  align-items: center;
+}
+.inventory__head {
+  font-size: 2rem;
+  color: ghostwhite;
+}
+.inventory__tools {
+  display: flex;
+  border: solid 2px white;
+}
+.tool-box {
+  height: 50px;
+  width: 50px;
+  border: solid 3px black;
+  background-color: blue;
+}
+.inventory__elements {
+  display: flex;
+  border: solid 2px white;
+}
+.elements-box {
+  height: 30px;
+  width: 30px;
+  border: solid 3px black;
+  background-color: red;
+}
+.inventory__resets {
+  display: flex;
+  flex-direction: column;
+  border: solid 3px black;
+}
+.inv-btn {
+  border: solid 3px white;
+  margin: 0.5rem;
+  width: 150px;
+  /* TODO change to relative units on upper divs */
 }
 
-/* calc(100% / 20))) */
-
-/* minmax(30px, 1fr)) */
+/* reset-world
+back-to-menu */

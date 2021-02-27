@@ -5,7 +5,7 @@ const startBtn = $(".start");
 const create = $(".create");
 const lawnMower = $(".lawn");
 // data objects
-const preset = {
+const preSet = {
   gameContent: $("#game"),
   gameContentClass: "game-content",
   gameWorld: $("#game__world"),
@@ -55,7 +55,43 @@ function intializeclass() {
   this.gameContent.classList.add(this.gameContentClass);
   this.gameWorld.classList.add(this.gameWorldClass);
   this.gameInventory.classList.add(this.gameInventoryClass);
-  //TODO add inventory classes
+  const header = document.createElement("h1");
+  header.innerText = "inventory";
+  header.classList.add("inventory__head");
+  this.gameInventory.appendChild(header);
+  const tools = document.createElement("div");
+  tools.classList.add("inventory__tools");
+  this.gameInventory.appendChild(tools);
+  const elements = document.createElement("div");
+  elements.classList.add("inventory__elements");
+  this.gameInventory.appendChild(elements);
+  for (const [i, v] of Object.entries(this.comp)) {
+    if (i != "main") {
+      console.log(i);
+      console.log(v);
+      let tool = document.createElement("div");
+      tool.classList.add(v.remover);
+      tool.classList.add("tool-box");
+      tools.appendChild(tool);
+      let element = document.createElement("div");
+      element.classList.add(v.el);
+      element.classList.add("elements-box");
+      elements.appendChild(element);
+    }
+  }
+  const btns = document.createElement("div");
+  btns.classList.add("inventory__resets");
+  this.gameInventory.appendChild(btns);
+  const resetWorld = document.createElement("button");
+  resetWorld.classList.add("reset-world");
+  resetWorld.classList.add("inv-btn");
+  resetWorld.innerText = "reset world";
+  btns.appendChild(resetWorld);
+  const backToMenu = document.createElement("button");
+  backToMenu.classList.add("back-to-menu");
+  backToMenu.classList.add("inv-btn");
+  backToMenu.innerText = "back to menu";
+  btns.appendChild(backToMenu);
 }
 //grid and main elements function
 function intializeGrids() {
@@ -85,7 +121,6 @@ function intializeGrids() {
 //added secondry elements
 function intializeElemnts() {
   //TODO add stones grass and clouds
-  console.log(this.gameContent);
 }
 
 //add events function
@@ -95,8 +130,8 @@ function intializeEvents() {
 }
 //game page events listners
 function eventTest(e) {
-  console.log(e.target.classList.value.includes("sky"));
+  // console.log(e.target.classList.value.includes("sky"));
 }
 
 //landing page event listners
-startBtn.addEventListener("click", intializeGame.bind(preset));
+startBtn.addEventListener("click", intializeGame.bind(preSet));
