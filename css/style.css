@@ -30,7 +30,7 @@
   grid-area: world;
 }
 .tile {
-  background-color: red;
+  background-color: azure;
 }
 .tile:hover {
   border: solid white 1px;

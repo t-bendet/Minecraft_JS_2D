@@ -55,7 +55,7 @@
 
 20 minutes
 
-- [ ] data obj
+- [x] data obj
 - [ ] inventory bar
 - [x] create matrix 10 \* 10
 - [ ] add last first funcionality to earth (can only extrect first elements)
