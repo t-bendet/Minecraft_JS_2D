@@ -25,21 +25,31 @@ const preSet = {
       el: "earth",
       remover: "shovel",
       curr: 0,
+      pickup: false,
     },
     element2: {
       el: "rock",
       remover: "pickaxe",
       curr: 0,
+      pickup: false,
     },
     element3: {
       el: "tree",
       remover: "axe",
       curr: 0,
+      pickup: false,
     },
     element4: {
       el: "grass",
       remover: "mower",
       curr: 0,
+      pickup: false,
+    },
+    element5: {
+      el: "leaves",
+      remover: "leaf-blower",
+      curr: 0,
+      pickup: false,
     },
   },
 };
@@ -57,8 +67,6 @@ function intializeGame() {
   myIntializeRocks();
   let myIntializeTrees = intializeTrees.bind(this);
   myIntializeTrees();
-  let myIntializeEvents = intializeEvents.bind(this);
-  myIntializeEvents();
 }
 //class function
 function intializeclass() {
@@ -207,7 +215,6 @@ function intializeTrees() {
         let curr = grid.querySelector(`[data-col="${col}"][data-row="${row}"]`);
         curr.classList.remove("sky");
         curr.classList.add("leaves");
-        curr.classList.add("tree");
         // find a way to connect axe to leavs also
       }
       x2++;
@@ -217,15 +224,58 @@ function intializeTrees() {
   // //TODO add randomize and improve
 }
 
-//add events function
-function intializeEvents() {
-  //TODO add events
-  this.gameContent.addEventListener("click", eventTest);
-}
 //game page events listners
-function eventTest(e) {
-  // console.log(e.target.classList.value.includes("sky"));
+preSet.gameContent.addEventListener("click", pickUp.bind(preSet));
+//game page events listners functions
+function pickUp(e) {
+  let currentRemover;
+  let removerObj;
+  let elementObj;
+  let currentElement;
+  //checks if remover was clicked
+  let removerClick = e.target.classList.contains("tool-box");
+  //store current remover name
+  if (removerClick) {
+    currentRemover = e.target.classList[0];
+    //list of the others removers
+    for (const [i, v] of Object.entries(this.comp)) {
+      if (i != "main") {
+        if (v.remover != currentRemover) {
+          v.pickup = false;
+        } else {
+          v.pickup = true;
+          removerObj = v;
+        }
+      }
+    }
+  }
+
+  //checks if element was clicked
+  elementClick = e.target.classList.contains("tile");
+  if (elementClick) {
+    //store current element name
+    currentElement = e.target.classList.value.replace("tile", "").trim();
+    //list of the others elements
+    for (const [i, v] of Object.entries(this.comp)) {
+      if (i != "main") {
+        if (v.el == currentElement) {
+          if (v.pickup) {
+            e.target.classList.remove(currentElement);
+            console.log(e.target);
+            console.log("still working yha");
+          }
+        }
+      }
+    }
+  }
 }
 
 //landing page event listners
 startBtn.addEventListener("click", intializeGame.bind(preSet));
+// if (removerClick) {
+//   let toolClick = e.target.classList[0];
+//   let arr = Object.values(this.comp);
+//   const obj = arr.find((element) => element.remover == toolClick);
+//   obj.pickup = true;
+//   obj.curr += 1;
+// }//

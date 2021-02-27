@@ -32,7 +32,7 @@
   grid-area: world;
 }
 .tile {
-  background-color: black;
+  background-color: blue;
 }
 .tile:hover {
   border: solid white 1px;

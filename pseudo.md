@@ -57,7 +57,7 @@
 - [x] data obj
 - [x] inventory bar
 - [x] create matrix 10 \* 10
-- [ ] event listner to change elements
+- [x] event listner to change elements
 
 # extras
 
