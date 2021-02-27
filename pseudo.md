@@ -1,9 +1,9 @@
 # main princibels
 
-- [ ] DRY
-- [ ] use obj
-- [ ] leran how to use event bind and this
-- [ ] css classes for everything,no css in jaava script
+- [x] DRY
+- [x] use obj
+- [x] leran how to use event bind and this
+- [x] css classes for everything,no css in jaava script
 
 # landing page
 

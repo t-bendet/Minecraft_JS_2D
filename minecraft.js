@@ -7,17 +7,61 @@ const lawnMower = $(".lawn");
 // data objects
 const preset = {
   gameContent: $("#game"),
+  gameContentClass: "game-content",
   gameWorld: $("#game__world"),
+  gameWorldClass: "game-content__world",
   gameInventory: $("#game__inventory"),
+  gameInventoryClass: "game-content__inventory",
+  worldSize: {
+    row: 23,
+    col: 40,
+  },
+  comp: {
+    main: "sky",
+    element1: {
+      el: "earth",
+      remover: "shovel",
+    },
+    element2: {
+      el: "stone",
+      remover: "pickaxe",
+    },
+    element3: {
+      el: "tree",
+      remover: "axe",
+    },
+    element4: {
+      el: "grass",
+      remover: "mower",
+    },
+  },
 };
+
 //game functions
-//TODO braek down all of the main function to parts and var needs to refer to the data object
+//main function
 function intializeGame() {
   let myIntializeclass = intializeclass.bind(this);
   myIntializeclass();
-  let worldrow = 23;
+  let myIntializeGrids = intializeGrids.bind(this);
+  myIntializeGrids();
+  let myIntializeElemnts = intializeElemnts.bind(this);
+  myIntializeElemnts();
+  let myIntializeEvents = intializeEvents.bind(this);
+  myIntializeEvents();
+}
+//class function
+function intializeclass() {
+  body.firstElementChild.remove();
+  this.gameContent.classList.add(this.gameContentClass);
+  this.gameWorld.classList.add(this.gameWorldClass);
+  this.gameInventory.classList.add(this.gameInventoryClass);
+  //TODO add inventory classes
+}
+//grid and main elements function
+function intializeGrids() {
+  let worldrow = this.worldSize.row;
   for (let row = 0; row < worldrow; row++) {
-    let worldcol = 40;
+    let worldcol = this.worldSize.col;
     let matrix = [];
     matrix[row] = [];
     for (let col = 0; col < worldcol; col++) {
@@ -27,40 +71,32 @@ function intializeGame() {
       } / ${col + 1}`;
       matrix[row][col].classList.add("tile");
       if (row < 13) {
-        matrix[row][col].classList.add("sky");
+        matrix[row][col].classList.add(this.comp.main);
       } else if (row < 14) {
-        matrix[row][col].classList.add("grass");
+        matrix[row][col].classList.add(this.comp.element4.el);
       } else {
-        matrix[row][col].classList.add("earth");
+        matrix[row][col].classList.add(this.comp.element1.el);
       }
       this.gameWorld.appendChild(matrix[row][col]);
     }
   }
-  this.gameContent.addEventListener("click", eventTest);
-  let mytest = test.bind(this);
-  mytest();
 }
-function intializeclass() {
-  body.firstElementChild.remove();
-  this.gameContent.classList.add("game-content");
-  this.gameWorld.classList.add("game-content__world");
-  this.gameInventory.classList.add("game-content__inventory");
-}
-function intializeGrids() {
-  console.log(this.gameContent);
-}
+
+//added secondry elements
 function intializeElemnts() {
+  //TODO add stones grass and clouds
   console.log(this.gameContent);
 }
+
+//add events function
 function intializeEvents() {
-  console.log(this.gameContent);
+  //TODO add events
+  this.gameContent.addEventListener("click", eventTest);
 }
-
-//event listners
-startBtn.addEventListener("click", intializeGame.bind(preset));
-
+//game page events listners
 function eventTest(e) {
   console.log(e.target.classList.value.includes("sky"));
 }
 
-// create.addEventListener("click", startGame.bind(obj1));
+//landing page event listners
+startBtn.addEventListener("click", intializeGame.bind(preset));
