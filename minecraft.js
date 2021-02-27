@@ -16,6 +16,9 @@ const preSet = {
     row: 23,
     col: 40,
   },
+  clouds: 4,
+  rocks: 2,
+  trees: 1,
   comp: {
     main: "sky",
     element1: {
@@ -46,6 +49,10 @@ function intializeGame() {
   myIntializeGrids();
   let myIntializeClouds = intializeClouds.bind(this);
   myIntializeClouds();
+  let myIntializeRocks = intializeRocks.bind(this);
+  myIntializeRocks();
+  let myIntializeTrees = intializeTrees.bind(this);
+  myIntializeTrees();
   let myIntializeEvents = intializeEvents.bind(this);
   myIntializeEvents();
 }
@@ -120,23 +127,87 @@ function intializeGrids() {
 
 //added secondry elements
 function intializeClouds() {
-  let grid = this.gameWorld;
+  const grid = this.gameWorld;
+  const numOfCol = this.worldSize.col;
+  // make sure there wont be to much clouds for screen width
+  const maxClouds = this.clouds > numOfCol / 10 ? numOfCol / 10 : this.clouds;
   let colStart = 2;
   let rowStart = 4;
-  const startPoint = grid.querySelector(
-    `[data-col="${colStart}"][data-row="${rowStart}"]`
-  );
   let x = 2;
   let y = 8;
-  for (let row = 4; row > 1; row--) {
-    for (let col = x; col < y; col++) {
-      let curr = grid.querySelector(`[data-col="${col}"][data-row="${row}"]`);
-      curr.classList.remove("sky");
-      curr.classList.add("cloud");
+  for (let i = 0; i < maxClouds; i++) {
+    for (let row = 4; row > 1; row--) {
+      for (let col = x; col < y; col++) {
+        let curr = grid.querySelector(`[data-col="${col}"][data-row="${row}"]`);
+        curr.classList.remove("sky");
+        curr.classList.add("cloud");
+      }
+      x++;
+      y--;
     }
-    x++;
-    y--;
+    x += 7;
+    y += 13;
   }
+  //TODO add randomize
+}
+
+function intializeRocks() {
+  const grid = this.gameWorld;
+  const numOfCol = this.worldSize.col;
+  // make sure there wont be to much rocks for screen width
+  const maxRocks = this.rocks > numOfCol / 10 ? numOfCol / 10 : this.rocks;
+  let colStart = 2;
+  let rowStart = 4;
+  let x = 2;
+  let y = 8;
+  for (let i = 0; i < maxRocks; i++) {
+    for (let row = 13; row > 9; row--) {
+      for (let col = x; col < y; col++) {
+        let curr = grid.querySelector(`[data-col="${col}"][data-row="${row}"]`);
+        curr.classList.remove("sky");
+        curr.classList.add("rock");
+      }
+      x++;
+      y--;
+    }
+    x += 7;
+    y += 13;
+  }
+  //TODO add randomize and improve
+}
+
+function intializeTrees() {
+  const grid = this.gameWorld;
+  const numOfCol = this.worldSize.col;
+  // make sure there wont be to much rocks for screen width
+  const maxTrees = this.trees > numOfCol / 10 ? numOfCol / 10 : this.trees;
+  let colStart = 2;
+  let rowStart = 4;
+  let x = 33;
+  let y = 34;
+  for (let i = 0; i < maxTrees; i++) {
+    for (let row = 13; row > 9; row--) {
+      for (let col = x; col < y; col++) {
+        let curr = grid.querySelector(`[data-col="${col}"][data-row="${row}"]`);
+        curr.classList.remove("sky");
+        curr.classList.add("tree");
+      }
+    }
+  }
+  let x2 = 29;
+  let y2 = 38;
+  for (let i = 0; i < maxTrees; i++) {
+    for (let row = 9; row > 6; row--) {
+      for (let col = x2; col < y2; col++) {
+        let curr = grid.querySelector(`[data-col="${col}"][data-row="${row}"]`);
+        curr.classList.remove("sky");
+        curr.classList.add("leaves");
+      }
+      x2++;
+      y2--;
+    }
+  }
+  // //TODO add randomize and improve
 }
 
 //add events function

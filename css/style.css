@@ -47,7 +47,17 @@
 .cloud {
   background-image: url(../images/cloud.png);
 }
+.rock {
+  background-image: url(../images/rock.png);
+}
 
+.tree {
+  background-image: url(../images/wood.png);
+}
+
+.leaves {
+  background-image: url(../images/tree-leaves.png);
+}
 /***********************************************************************
  * Game Page Inventory
 **********************************************************************/
