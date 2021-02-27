@@ -30,7 +30,7 @@
   grid-area: world;
 }
 .tile {
-  background-color: azure;
+  background-color: black;
 }
 .tile:hover {
   border: solid white 1px;
@@ -43,6 +43,9 @@
 }
 .earth {
   background-image: url(../images/soil.jpg);
+}
+.cloud {
+  background-image: url(../images/cloud.png);
 }
 
 /***********************************************************************

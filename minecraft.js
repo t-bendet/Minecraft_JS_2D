@@ -44,8 +44,8 @@ function intializeGame() {
   myIntializeclass();
   let myIntializeGrids = intializeGrids.bind(this);
   myIntializeGrids();
-  let myIntializeElemnts = intializeElemnts.bind(this);
-  myIntializeElemnts();
+  let myIntializeClouds = intializeClouds.bind(this);
+  myIntializeClouds();
   let myIntializeEvents = intializeEvents.bind(this);
   myIntializeEvents();
 }
@@ -67,8 +67,6 @@ function intializeclass() {
   this.gameInventory.appendChild(elements);
   for (const [i, v] of Object.entries(this.comp)) {
     if (i != "main") {
-      console.log(i);
-      console.log(v);
       let tool = document.createElement("div");
       tool.classList.add(v.remover);
       tool.classList.add("tool-box");
@@ -105,6 +103,8 @@ function intializeGrids() {
       matrix[row][col].style["grid-area"] = `${row + 1} / ${col + 1} / ${
         row + 2
       } / ${col + 1}`;
+      matrix[row][col].setAttribute("data-row", row + 1);
+      matrix[row][col].setAttribute("data-col", col + 1);
       matrix[row][col].classList.add("tile");
       if (row < 13) {
         matrix[row][col].classList.add(this.comp.main);
@@ -119,8 +119,24 @@ function intializeGrids() {
 }
 
 //added secondry elements
-function intializeElemnts() {
-  //TODO add stones grass and clouds
+function intializeClouds() {
+  let grid = this.gameWorld;
+  let colStart = 2;
+  let rowStart = 4;
+  const startPoint = grid.querySelector(
+    `[data-col="${colStart}"][data-row="${rowStart}"]`
+  );
+  let x = 2;
+  let y = 8;
+  for (let row = 4; row > 1; row--) {
+    for (let col = x; col < y; col++) {
+      let curr = grid.querySelector(`[data-col="${col}"][data-row="${row}"]`);
+      curr.classList.remove("sky");
+      curr.classList.add("cloud");
+    }
+    x++;
+    y--;
+  }
 }
 
 //add events function

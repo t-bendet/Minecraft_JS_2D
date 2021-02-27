@@ -16,8 +16,6 @@
 - [x] btn-options
 
   - quick start
-  - ~~creatyourown~~
-  - ~~size,skin,elements....~~
 
 ### css
 
@@ -43,9 +41,10 @@
 
 30 minutes
 
-- [ ] classes : main, inventory,tools,elements, more options?,btn-resetworld,btn-resetgame( back to main),tool box element-box
+- [x] classes : main, inventory,tools,elements, more options?,btn-resetworld,btn-resetgame( back to main),tool box element-box
 - [ ] background image for each element
 - [ ] pointers for each tool
+- [ ] add counter for elements in object and in css
 
 ### js
 
@@ -56,9 +55,10 @@
 20 minutes
 
 - [x] data obj
-- [ ] inventory bar
+- [x] inventory bar
 - [x] create matrix 10 \* 10
 - [ ] add last first funcionality to earth (can only extrect first elements)
+- [ ] event listner to change elements
 
 # extras
 
@@ -72,3 +72,4 @@
 - [ ] Q : add animation for landing and explantion?
 - [ ] lawn-mower
 - [ ] add on hover image that will be like the item i selected from the inventory
+- [ ] creatyourown :size,skin,elements
