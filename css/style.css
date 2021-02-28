@@ -4,13 +4,22 @@
 #landing-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: aqua;
   height: 100%;
   padding: 4rem;
-  /* background: url(../images/pickaxe.png) no-repeat center center/cover; */
-  /* TODO add images */
+  background: url(../images/x.png) no-repeat center center/cover;
+  font-family: "VT323", monospace;
+}
+#landing-page h1 {
+  font-size: 5rem;
+}
+
+#landing-page p {
+  font-size: 3rem;
+  font-weight: 500;
+  color: slateblue;
 }
 /***********************************************************************
  *  Game Page world
@@ -74,16 +83,21 @@
   align-items: center;
 }
 .inventory__head {
+  font-family: "VT323", monospace;
+  color: #ff8000;
   font-size: 2rem;
-  color: ghostwhite;
 }
 .inventory__tools {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   border: solid 2px white;
 }
 .tool-box {
   height: 50px;
   width: 50px;
+  margin: 0.5rem;
+
   border: solid 3px white;
   background-color: blue;
   display: flex;
@@ -105,11 +119,14 @@
 .inventory__elements {
   display: flex;
   border: solid 2px white;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .elements-box {
   height: 50px;
   width: 50px;
+  margin: 0.5rem;
   border: solid 3px black;
   background-color: red;
 }
@@ -142,4 +159,11 @@
 }
 .mower {
   background: url(../images/mower.png) no-repeat center center/cover;
+}
+.leaf-blower {
+  background: url(../images/Leaf_Blower.png) no-repeat center center/cover;
+}
+
+.wind {
+  background: url(../images/wind.png) no-repeat center center/cover;
 }

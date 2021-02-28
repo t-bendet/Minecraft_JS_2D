@@ -26,30 +26,42 @@ const preSet = {
       remover: "shovel",
       curr: 0,
       pickup: false,
+      pickdown: false,
     },
     element2: {
       el: "rock",
       remover: "pickaxe",
       curr: 0,
       pickup: false,
+      pickdown: false,
     },
     element3: {
       el: "tree",
       remover: "axe",
       curr: 0,
       pickup: false,
+      pickdown: false,
     },
     element4: {
       el: "grass",
       remover: "mower",
       curr: 0,
       pickup: false,
+      pickdown: false,
     },
     element5: {
       el: "leaves",
       remover: "leaf-blower",
       curr: 0,
       pickup: false,
+      pickdown: false,
+    },
+    element6: {
+      el: "cloud",
+      remover: "wind",
+      curr: 0,
+      pickup: false,
+      pickdown: false,
     },
   },
 };
@@ -67,7 +79,17 @@ function intializeGame() {
   myIntializeRocks();
   let myIntializeTrees = intializeTrees.bind(this);
   myIntializeTrees();
+  const Menue = $(".back-to-menu");
+  Menue.addEventListener("click", () => {
+    location.reload();
+  });
+  // const Reset = $(".reset-world");
+  // Reset.addEventListener("click", () => {
+  //   setTimeout(window.location.reload.bind(window.location), 250);
+  //   intializeGame.bind(preSet);
+  // });
 }
+
 //class function
 function intializeclass() {
   body.firstElementChild.remove();
@@ -226,11 +248,11 @@ function intializeTrees() {
 
 //game page events listners
 preSet.gameContent.addEventListener("click", pickUp.bind(preSet));
+preSet.gameContent.addEventListener("click", pickDown.bind(preSet));
 //game page events listners functions
 function pickUp(e) {
   let currentRemover;
   let removerObj;
-  let elementObj;
   let currentElement;
   //checks if remover was clicked
   let removerClick = e.target.classList.contains("tool-box");
@@ -249,7 +271,6 @@ function pickUp(e) {
       }
     }
   }
-
   //checks if element was clicked
   elementClick = e.target.classList.contains("tile");
   if (elementClick) {
@@ -261,21 +282,51 @@ function pickUp(e) {
         if (v.el == currentElement) {
           if (v.pickup) {
             e.target.classList.remove(currentElement);
-            console.log(e.target);
-            console.log("still working yha");
+            v.curr += 1;
+            const elBox = $(`.inventory__elements .${currentElement}`);
+            elBox.innerText = v.curr;
           }
         }
       }
     }
   }
 }
+function pickDown(e) {
+  let adderrObj;
 
+  let adderClick = e.target.classList.contains("elements-box");
+  if (adderClick) {
+    currentAdder = e.target.classList[0];
+    for (const [i, v] of Object.entries(this.comp)) {
+      if (i != "main") {
+        if (v.el != currentAdder) {
+          v.pickdown = false;
+        } else {
+          v.pickdown = true;
+          adderrObj = v;
+        }
+      }
+    }
+  }
+  elementClick = e.target.classList.contains("tile");
+  if (elementClick) {
+    currentElement = e.target.classList.value.replace("tile", "").trim();
+    for (const [i, v] of Object.entries(this.comp)) {
+      if (i != "main") {
+        if (v.pickdown) {
+          if (v.curr) {
+            v.curr -= 1;
+            e.target.classList.remove(
+              e.target.classList.value.replace("tile", " ").trim()
+            );
+            e.target.classList.add(v.el);
+            const elBox = $(`.inventory__elements .${v.el}`);
+            elBox.innerText = v.curr;
+          }
+        }
+      }
+    }
+  }
+}
 //landing page event listners
 startBtn.addEventListener("click", intializeGame.bind(preSet));
-// if (removerClick) {
-//   let toolClick = e.target.classList[0];
-//   let arr = Object.values(this.comp);
-//   const obj = arr.find((element) => element.remover == toolClick);
-//   obj.pickup = true;
-//   obj.curr += 1;
-// }//

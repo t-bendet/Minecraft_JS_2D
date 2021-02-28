@@ -44,7 +44,9 @@
 - [x] classes : main, inventory,tools,elements, more options?,btn-resetworld,btn-resetgame( back to main),tool box element-box
 - [x] background image for each element
 - [ ] pointers for each tool
-- [ ] add counter for elements in object and in css
+- [x] add counter for elements in object and in css
+- [ ] media queries
+- [x] fonts animations and shits
 
 ### js
 
@@ -65,10 +67,6 @@
 - [ ] coding skin
 - [ ] china skin bambook
 - [ ] randomize world generation
-- [ ] randomization how?? onorder shapes loke clouds
-- [ ] media queries
-- [ ] fonts animations and shits
-- [ ] Q : add animation for landing and explantion?
 - [ ] lawn-mower
 - [ ] add on hover image that will be like the item i selected from the inventory
 - [ ] creatyourown :size,skin,elements
